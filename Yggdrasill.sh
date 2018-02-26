@@ -1,8 +1,15 @@
 #!/bin/bash
+
+if(( "$BahiadeLasMarianas" == 1 ))
+then
 echo "En que directorio desea ejecutar Ratatoskrr?" | lolcat
 echo "(Inserte la ruta absoluta)" | lolcat
 echo "Si desea ejecutarlo en el directorio actual presiona enter" | lolcat
 read Directorio
+if(( -z "$Directorio" ))
+then
+Directorio = "$Ratatoskr"
+fi
 cd "$Directorio"
 echo */ > listadir.txt
 echo * > listaarch.txt
@@ -59,3 +66,6 @@ grep -o "\<Y[a-zA-Z0-9]*/" listadir.txt | lolcat
 grep -o "\<[y|Y][a-zA-Z0-9]*\.[a-z]*" listaarch.txt | tr '\n' ' ' | sed '$s/ $/\n/' | lolcat
 grep -o "\<Z[a-zA-Z0-9]*/" listadir.txt | lolcat
 grep -o "\<[z|Z][a-zA-Z0-9]*\.[a-z]*" listaarch.txt | tr '\n' ' ' | sed '$s/ $/\n/' | lolcat
+else
+	echo"Comando no reconocido"
+fi
