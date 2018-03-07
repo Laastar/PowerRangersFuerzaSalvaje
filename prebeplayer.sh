@@ -21,14 +21,16 @@ clear
 
 function menu
 {
-echo -e "		   M E N Ú   P R I N C I P A L		\n"
-echo "Seleccione una opción"
-echo "1.- Reproducir una sola canción"
-echo "2.- Reproducir todas las canciones de un directorio (en orden)"
-echo "3.- Reproducir todas las canciones de un directorio aleatoriamente (de forma finita)"
-echo "4.- Reproducir todas las canciones de un directorio aleatoriamente (de forma infinita)"
-echo "5.- Salir"
-echo "Opción [1-5]: "
+echo -e "\e[97;101m		                    M E N Ú   P R I N C I P A L                                  \e[0m"
+echo -e "\e[91;107m                                                                                                 \e[0m"
+echo -e "\e[91;107m  Seleccione una opción                                                                          \e[0m"
+echo -e "\e[91;107m 	1.- Reproducir una sola canción                                                          \e[0m"
+echo -e "\e[91;107m 	2.- Reproducir todas las canciones de un directorio (en orden)                           \e[0m"
+echo -e "\e[91;107m 	3.- Reproducir todas las canciones de un directorio aleatoriamente (de forma finita)     \e[0m"
+echo -e "\e[91;107m 	4.- Reproducir todas las canciones de un directorio aleatoriamente (de forma infinita)   \e[0m"
+echo -e "\e[91;107m 	5.- Salir                                                                                \e[0m"
+echo -e "\e[91;107m  Opción [1-5]:                                                                                  \e[0m"
+echo -e "\e[91;107m                                                                                                 \e[0m"
 }
 
 menu
@@ -38,37 +40,85 @@ function opciones
 read opcion
 case $opcion in
 	1)
-		echo "Ingresa la ruta y el nombre de la canción de la siguiente manera: /ruta/\"canción.mp3\" y posteriormente presiona la letra \"h\" para ver las teclas de control";
-		read cancion; mpg123 --title -C $cancion;
+		clear
+		echo -e "\e[45;37;4m                               SINGLE                                 \e[0m";
+		echo -e "\e[45;37m                                                                      \e[0m";
+		echo -e "\e[45;37m Ingresa la ruta y el nombre de la canción de la siguiente manera:    \e[0m";
+		echo -e "\e[45;37;3m                    \e[1m /ruta/canción.mp3                                \e[0m";
+		echo -e "\e[45;37m Posteriormente presiona la letra \"h\" para ver las teclas de control  \e[0m";
+		echo -e "\e[45;37m ***Recuerda que actualmente estás en la ruta: \e[1m`pwd`\e[0m\e[45;37m***      \e[0m";
+		echo -e "\e[45;37m                                                                      ";
+		read cancion;
+		echo -e "\e[0m";
+		mpg123 --title -C $cancion
 		clear;
 		echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear; 
 		menu; opciones;;
 
+
 	2)
-		echo "Ingresa la ruta del directorio de la siguiente manera: /ruta/directorio_con_las_canciones y posteriormente presiona la letra \"h\" para ver las teclas de control";
-                read carpeta; mpg123 --title -C $carpeta/*;
+		clear
+		echo -e "\e[45;37;4m                              IN ORDER                                \e[0m";
+		echo -e "\e[45;37m                                                                      \e[0m";
+                echo -e "\e[45;37m Ingresa la ruta del directorio de la siguiente manera:               \e[0m";
+                echo -e "\e[45;37;3m           \e[1m /ruta/directorio_con_las_canciones                        \e[0m";
+                echo -e "\e[45;37m                                                                      \e[0m";
+		echo -e "\e[45;37m Posteriormente presiona la letra \"h\" para ver las teclas de control  \e[0m";
+                echo -e "\e[45;37m ***Recuerda que actualmente estás en la ruta: \e[1m`pwd`\e[0m\e[45;37m***      \e[0m";
+		echo -e "\e[45;37m                                                                      ";
+		read carpeta;
+		echo -e "\e[0m";
+		mpg123 --title -C $carpeta/*;
 		clear;
-		echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear; 
-                menu; opciones;;
+		echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear;
+		menu; opciones;;
+
 
 
 	3)
-		echo "Ingresa la ruta del directorio de la siguiente manera: /ruta/directorio_con_las_canciones y posteriormente presiona la letra \"h\" para ver las teclas de control";
-                read carpeta; mpg123 --title --shuffle -C $carpeta/*;
+		clear
+		echo -e "\e[45;37;4m                               SHUFFLE                                \e[0m";
+		echo -e "\e[45;37m                                                                      \e[0m";
+                echo -e "\e[45;37m Ingresa la ruta del directorio de la siguiente manera:               \e[0m";
+		echo -e "\e[45;37;3m           \e[1m /ruta/directorio_con_las_canciones                        \e[0m";
+                echo -e "\e[45;37m Posteriormente presiona la letra \"h\" para ver las teclas de control  \e[0m";
+		echo -e "\e[45;37m ***Recuerda que actualmente estás en la ruta: \e[1m`pwd`\e[0m\e[45;37m***      \e[0m";
+                echo -e "\e[45;37m                                                                      ";
+                read carpeta;
+                echo -e "\e[0m";
+                mpg123 --title --shuffle -C $carpeta/*;
                 clear;
-                echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear; 
+                echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear;
                 menu; opciones;;
 
+
+
 	4)
-		echo "Ingresa la ruta del directorio de la siguiente manera: /ruta/directorio_con_las_canciones y posteriormente presiona la letra \"h\" para ver las teclas de control";
-                read carpeta; mpg123 --title --random -C $carpeta/*;
+		clear
+		echo -e "\e[45;37;4m                               RANDOM                                 \e[0m";
+		echo -e "\e[45;37m                                                                      \e[0m";
+                echo -e "\e[45;37m Ingresa la ruta del directorio de la siguiente manera:               \e[0m";
+		echo -e "\e[45;37;3m           \e[1m /ruta/directorio_con_las_canciones                        \e[0m";
+                echo -e "\e[45;37m Posteriormente presiona la letra \"h\" para ver las teclas de control  \e[0m";
+		echo -e "\e[45;37m ***Recuerda que actualmente estás en la ruta: \e[1m`pwd`\e[0m\e[45;37m***      \e[0m";
+                echo -e "\e[45;37m                                                                      ";
+                read carpeta;
+                echo -e "\e[0m";
+                mpg123 --title --random -C $carpeta/*;
                 clear;
-                echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear; 
+                echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear;
                 menu; opciones;;
+
 
 
 
 	5)	read -p "Presiona [Enter] para salir"; clear; exit;;
+
+	*)
+		echo "Opción incorrecta";
+		read -p "Presiona [Enter]..."
+		clear;
+		menu; opciones;;
 
 esac
 }
