@@ -67,6 +67,5 @@ grep -o "\<Y[a-zA-Z0-9]*/" listadir.txt | lolcat
 grep -o "\<[y|Y][a-zA-Z0-9]*\.[a-z]*" listaarch.txt | tr '\n' ' ' | sed '$s/ $/\n/' | lolcat
 grep -o "\<Z[a-zA-Z0-9]*/" listadir.txt | lolcat
 grep -o "\<[z|Z][a-zA-Z0-9]*\.[a-z]*" listaarch.txt | tr '\n' ' ' | sed '$s/ $/\n/' | lolcat
-else
-	echo"Comando no reconocido"
+
 fi
