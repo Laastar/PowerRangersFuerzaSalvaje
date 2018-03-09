@@ -6,7 +6,7 @@ echo "En que directorio desea ejecutar Ratatoskrr?" | lolcat
 echo "(Inserte la ruta absoluta)" | lolcat
 echo "Si desea ejecutarlo en el directorio actual presiona enter" | lolcat
 read Directorio
-if(( -z "$Directorio" ))
+if(( "$Directorio" == "" ))
 then
 Directorio = "$Ratatoskr"
 fi
