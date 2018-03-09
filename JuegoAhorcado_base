@@ -1,8 +1,36 @@
 #!/bin/bash
 clear
-juego_ahorcado
-function juego_ahorcado {
 
+main_juego_ahorcado
+function main_juego_ahorcado {
+	clear
+	echo -e "\e[46m\t\t\t\t\t\t\t\t\e[49m"
+	echo -e "\e[46m\t\tBIENVENIDO AL JUEGO DEL AHORCADO\t\t\e[49m"
+	echo -e "\e[46m\t\t\t\t\t\t\t\t\e[49m"
+	echo -e "\n\t¿Qué desea hacer?\n\n\t1) Comenzar Juego\n\t2) Leer instrucciones\n\t3) Salir del juego\n"
+	read -p "	" decision_j_ahorcado
+	while [ $decision_j_ahorcado -ne 1 ] && [ $decision_j_ahorcado -ne 2 ] && [ $decision_j_ahorcado -ne 3 ]; do
+		echo -e "\n\tERROR: opción no válida."
+		read -p "	Favor de volver a ingresar el dato: " decision_j_ahorcado
+	done
+	case $decision_j_ahorcado in
+		1)
+			juego_ahorcado;;
+		2)
+			ayuda_j_ahorcado;;
+	esac
+}
+
+function ayuda_j_ahorcado {
+	clear
+	echo -e "\n\tAYUDA\n"
+	echo -e ""
+	read -p "	Presiona Enter para continuar..." pausa
+	main_juego_ahorcado
+}
+
+function juego_ahorcado {
+clear
 echo -e "\n\e[46m\t\tBIENVENIDO AL JUEGO DEL AHORCADO\t\t\e[49m"
 echo -e "\n\tIngrese los nombres de los jugadores\n\t"
 read -p "		Jugador 1: " jugador1
@@ -137,12 +165,14 @@ if [ $errores -eq 10 ];then
 	echo -e "\n\e[46m\t\t\tJUEGO DEL AHORCADO\t\t\t\e[49m"
 	error10
 	echo -e "\n\t¡LO SIENTO, AMIGO! SE TE ACABARON LAS OPORTUNIDADES\t\n\n\t"
-	read -p "Presione Enter para continuar..." pausa
+	read -p "	Presione Enter para continuar..." pausa
+	main_juego_ahorcado
 else
 	clear
 	echo -e "\n\e[46m\t\t\tJUEGO DEL AHORCADO\t\t\t\e[49m"
-	echo -e "\n\t\t\tFELICIDADES\t\t\t\n\t\t¡HAS GANADO!\n\n\t"
-	read -p "Presione Enter para continuar..." pausa
+	echo -e "\n\t\t\tFELICIDADES\t\t\t\n\t\t¡HAS GANADO!\n\n"
+	read -p "	Presione Enter para continuar..." pausa
+	main_juego_ahorcado
 fi
 }
 
