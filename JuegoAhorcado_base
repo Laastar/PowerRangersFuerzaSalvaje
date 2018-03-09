@@ -1,0 +1,431 @@
+#!/bin/bash
+clear
+juego_ahorcado
+function juego_ahorcado {
+
+echo -e "\n\e[46m\t\tBIENVENIDO AL JUEGO DEL AHORCADO\t\t\e[49m"
+echo -e "\n\tIngrese los nombres de los jugadores\n\t"
+read -p "		Jugador 11: " jugador1
+read -p "		Jugador 21: " jugador2
+
+echo -e "\n\t$jugador1, por favor ingresa la palabra que deseas que adivine $jugador2"
+read -p "	(Sólo se aceptan minúculas): " palabra
+
+size_word=${#palabra}
+
+#for ((posicion=0; posicion < $size_word; posicion++)); do
+ #       if [ ${palabra:$posicion:1} = a ] || [ ${palabra:$posicion:1} = b ];then
+#		echo -e \t\tERROR: caracter no válido, favor de volver a ingresar el dato"
+ #               read -p                palabra: " palabra
+  #              posicion=0
+   #     fi
+#done
+
+errores=0
+aciertos=0
+palabra_r=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+
+clear
+
+while [ $errores -lt 10 ]; do
+	echo -e "\n\e[46m\t\t\tJUEGO DEL AHORCADO\t\t\t\e[49m"
+	case $errores in
+		0)
+			error0;;
+		1)
+			error1;;
+		2)
+			error2;;
+		3)
+			error3;;
+		4)
+			error4;;
+		5)
+			error5;;
+		6)
+			error6;;
+		7)
+			error7;;
+		8)
+			error8;;
+		9)
+			error9;;
+	esac
+	echo -en "\tPalabra: "
+	for ((posicion=0; posicion < $size_word; posicion++)); do
+		if [ ${palabra_r[posicion]} -eq 0 ];then
+			echo -en "*"
+		else
+			echo -en "${palabra:$posicion:1}"
+		fi
+	done
+	echo -e "\tNúmero de errores: $errores\n"
+	read -p "	¿Cuál es la siguiente letra que desea elegir? " letra
+	size_letra=${#letra}
+	
+	while [ $size_letra -ne 1 ]; do
+		echo -e "\tERROR: sólo puedes escribir una letra"
+		read -p "	Favor de volver a ingresar el dato: " letra
+		size_letra=${#letra}
+	done
+	#echo $errores
+	coincidencias=0
+	for ((posicion=0; posicion < $size_word; posicion++)); do
+	        if [ ${palabra:$posicion:1} = $letra ];then
+	                let coincidencias=coincidencias+1
+			echo "Posicion: $posicion ; Coincidencias: $coincidencias Letra en posicion: ${palabra:$posicion:1}"
+	        fi
+	done
+	#echo "palabra r: $palabra_r"
+	if [ $coincidencias -eq 0 ];then
+		let errores=errores+1
+	else
+		for ((posicion=0; posicion < $size_word; posicion++)); do
+	        	if [ ${palabra:$posicion:1} = $letra ];then
+	                	let palabra_r[posicion]=1
+				let aciertos=acirtos+1
+	        	fi
+		done
+	fi
+	
+	#echo "aciertos $aciertos"
+	#echo "errores $errores"
+	#echo "palabra r: ${palabra_r[@]}"
+	#read -p "Presiona cualquier tecla para continuar" pausa
+	
+	if [ $aciertos = $size_word ];then
+		break;
+	fi
+	
+	clear
+done
+
+if [ $errores -eq 10 ];then
+	echo -e "\n\e[46m\t\t\tJUEGO DEL AHORCADO\t\t\t\e[49m"
+	error10
+	echo -e "\n\tMejor suerte la próxima"
+else
+	echo -e "\n\e[46m\t\t\tJUEGO DEL AHORCADO\t\t\t\e[49m"
+	echo -e "\n\tFelicidades"
+fi
+}
+
+function error10 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||           o                 "
+echo -e "\t||           o                 "
+echo -e "\t||           o                 "
+echo -e "\t||           o                 "
+echo -e "\t||           o                 "
+echo -e "\t||         __o____             "
+echo -e "\t||        /_______\            "
+echo -e "\t||       |_________|           "
+echo -e "\t||        | **  **|            "
+echo -e "\t||        |  x  x |            "
+echo -e "\t||        |    >  |            "
+echo -e "\t||         \  ~~ /             "
+echo -e "\t||       __ooooooo_            "
+echo -e "\t||      /          \           "
+echo -e "\t||     /            \          "
+echo -e "\t||     |  |       | |          "
+echo -e "\t||     |__|_______|_|          "
+echo -e "\t||______ww|       |w           "
+echo -e "\t||    (_) |   |   |            "
+echo -e "\t||____| | |   |   |            "
+echo -e "\t||    | | |___|___|_           "
+echo -e "\t||    | | |_____|___|          "
+echo -e "\t||    | |                      "
+echo -e "\t||    |_|                      "
+}
+function error9 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||           o                 "
+echo -e "\t||         __o____             "
+echo -e "\t||        /_______\            "
+echo -e "\t||       |_________|           "
+echo -e "\t||        | **  **|            "
+echo -e "\t||        |  0  0 |            "
+echo -e "\t||        |    >  |            "
+echo -e "\t||         \  ~~ /             "
+echo -e "\t||       __ooooooo_            "
+echo -e "\t||      /          \           "
+echo -e "\t||     /            \          "
+echo -e "\t||     |  |       | |          "
+echo -e "\t||     |__|_______|_|          "
+echo -e "\t||      ww|       |w           "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |___|___|_           "
+echo -e "\t||________|_____|___|          "
+echo -e "\t||    (_)___________|          "
+echo -e "\t||____|                        "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error8 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||                             "
+echo -e "\t||         _______             "
+echo -e "\t||        /_______\            "
+echo -e "\t||       |_________|           "
+echo -e "\t||        | **  **|            "
+echo -e "\t||        |  0  0 |            "
+echo -e "\t||        |    >  |            "
+echo -e "\t||         \  ~~ /             "
+echo -e "\t||       ___|___|__            "
+echo -e "\t||      /          \           "
+echo -e "\t||     /            \          "
+echo -e "\t||     |  |       | |          "
+echo -e "\t||     |__|_______|_|          "
+echo -e "\t||      ww|       |w           "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |___|___|_           "
+echo -e "\t||________|_____|___|          "
+echo -e "\t||    (_)___________|          "
+echo -e "\t||____|                        "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error7 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||       __________            "
+echo -e "\t||      /          \           "
+echo -e "\t||     /            \          "
+echo -e "\t||     |  |       | |          "
+echo -e "\t||     |__|_______|_|          "
+echo -e "\t||      ww|       |w           "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |___|___|_           "
+echo -e "\t||________|_____|___|          "
+echo -e "\t||    (_)___________|          "
+echo -e "\t||____|                        "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error6 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||       _________             "
+echo -e "\t||      /         |            "
+echo -e "\t||     /          |            "
+echo -e "\t||     |  |       |            "
+echo -e "\t||     |__|_______|            "
+echo -e "\t||      ww|       |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |___|___|_           "
+echo -e "\t||________|_____|___|          "
+echo -e "\t||    (_)___________|          "
+echo -e "\t||____|                        "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error5 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||         _______             "
+echo -e "\t||        |       |            "
+echo -e "\t||        |       |            "
+echo -e "\t||        |       |            "
+echo -e "\t||        |_______|            "
+echo -e "\t||        |       |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |___|___|_           "
+echo -e "\t||________|_____|___|          "
+echo -e "\t||    (_)___________|          "
+echo -e "\t||____|                        "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error4 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||         _______             "
+echo -e "\t||        |       |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |   |   |            "
+echo -e "\t||        |___|___|_           "
+echo -e "\t||________|_____|___|          "
+echo -e "\t||    (_)___________|          "
+echo -e "\t||____|                        "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error3 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||         ___                 "
+echo -e "\t||        |   |                "
+echo -e "\t||        |   |                "
+echo -e "\t||        |   |                "
+echo -e "\t||        |___|_               "
+echo -e "\t||________|_____|___           "
+echo -e "\t||    (_)___________|          "
+echo -e "\t||____|                        "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error2 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||__________________           "
+echo -e "\t||    (_)___________|          "
+echo -e "\t||____|                        "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error1 {
+echo -e "\t________________               "
+echo -e "\t|O==========___/               "
+echo -e "\t||          |_|                "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
+function error0 {
+echo -e "\t__                             "
+echo -e "\t|O                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+echo -e "\t||                             "
+}
