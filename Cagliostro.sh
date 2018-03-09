@@ -38,6 +38,4 @@ then
 	fi
 	}
 	juego
-else
-	echo ""
 fi
