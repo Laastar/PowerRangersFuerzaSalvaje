@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 clear
@@ -59,4 +60,38 @@ POKE27="Sandshrew"
 POKE28="Sandslash"
 POKE29="Nidoran"
 POKE30="Nidorina"
+
+function intro
+{
+echo -e "\e[0m\e[44;97m                                                                                                                    "
+echo -e "                                                                                                                    "
+echo -e "   °Para este juego tendrás que seleccionar una categoría: sea \e[44;97;1mA\e[0m\e[44;97m,\e[44;97;1m B\e[0m\e[44;97m o\e[44;97;1m C\e[44;97m                                             \e[0m"
+echo -e "\e[44;97m   °Posteriormente, según la categoría que hayas seleccionado, deberás ingresar el nombre de ciertos pokémones...   "
+echo -e "   °Si el número de la pokédex corresponde al pokémon que ingresaste verás magia ante tus ojos                      "
+echo -e "   °Si el nombre del pokémon es incorrecto entonces pierdes el juego :v                                             "
+echo -e "                                                                                                                    "
+echo -e "                                            \e[44;97;1m Pon a trabajar esa memoria                                             "
+echo -e "                                                      ¡Suerte!                                                      "
+echo -e "                                                                                                                    "
+echo -e "                                                                                                                    \e[0m"
+read -p "Presiona [Enter]..."
+
+}
+
+intro
+
+function menu
+{
+clear
+echo -e "\e[97;101m		                       P O K E M E N Ú                                   \e[0m"
+echo -e "\e[91;107m                                                                                                \e[0m"
+echo -e "\e[91;107m Seleccione una opción                                                                          \e[0m"
+echo -e "\e[91;107m	1-.                                                                                     \e[0m"
+echo -e "\e[91;107m	2.-                                                                                     \e[0m"
+echo -e "\e[91;107m	3.-                                                                                     \e[0m"
+echo -e "\e[91;107m	4.- Salir                                                                                    \e[0m"
+echo -e "\e[91;107m Opción [1-4]:                                                                                  \e[0m"
+}
+
+menu
 
