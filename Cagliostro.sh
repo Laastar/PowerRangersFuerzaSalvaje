@@ -2,14 +2,27 @@
 
 if(( "$BahiadeLasMarianas" == 1))
 then
-	echo"Tienes 2 monedas"
-	echo"Si presionas el boton hay 50% de probabilidad de duplicar"
-	echo"tus monedas y otro 50% de perder todo"
-	echo"¿Apuestas? (y/n)"
+	clear
+	echo "Tienes 2 monedas"
+	monedas=2
+	DIFF=$((2))
+	RANDOM=$$
+	echo "Si presionas el boton hay 50% de probabilidad de duplicar"
+	echo "tus monedas y otro 50% de perder todo"
+	echo "Puedes hacerlo un maximo de 5 veces"
+	echo "¿Apuestas? (y/whatever key you want to press)"
 	read response
-	if  [ "$Response" == "y" ]
+	if(("$response" == "y"))
+	then
+		valor=$(($RANDOM%$DIFF))
+		if(("$valor" == 1 && "$monedas" != 0))
 		then
-			awk -v min=1 -v max=2 'BEGIN{srand(); print int(min+rand()*(max-min+1))}'
+			monedas=monedas * 2
+			echo "Tus monedas ahora son $monedas"
+		else
+			echo "Te quedaste sin monedas :C"
+			break
+		fi
 	else
 		echo " :/  Coward XD"
 	fi
