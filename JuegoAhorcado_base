@@ -5,8 +5,8 @@ function juego_ahorcado {
 
 echo -e "\n\e[46m\t\tBIENVENIDO AL JUEGO DEL AHORCADO\t\t\e[49m"
 echo -e "\n\tIngrese los nombres de los jugadores\n\t"
-read -p "		Jugador 11: " jugador1
-read -p "		Jugador 21: " jugador2
+read -p "		Jugador 1: " jugador1
+read -p "		Jugador 2: " jugador2
 
 echo -e "\n\t$jugador1, por favor ingresa la palabra que deseas que adivine $jugador2"
 read -p "	(Sólo se aceptan minúculas): " palabra
@@ -24,6 +24,8 @@ size_word=${#palabra}
 errores=0
 aciertos=0
 palabra_r=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+letras_elegidas=(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+turno=0
 
 clear
 
@@ -59,15 +61,45 @@ while [ $errores -lt 10 ]; do
 			echo -en "${palabra:$posicion:1}"
 		fi
 	done
-	echo -e "\tNúmero de errores: $errores\n"
-	read -p "	¿Cuál es la siguiente letra que desea elegir? " letra
+	echo -e "\tNúmero de errores: $errores"
+	echo -en "\n\tLetras elegidas:"
+	if [ $turno -gt 0 ];then
+		for ((posicion=0; posicion < turno; posicion++)); do
+        	        echo -en " ${letras_elegidas[posicion]},"
+        	done
+	fi
+	echo ""
+	read -p "	¿Qué letra desea elegir? " letra
 	size_letra=${#letra}
 	
 	while [ $size_letra -ne 1 ]; do
-		echo -e "\tERROR: sólo puedes escribir una letra"
+		echo -e "\n\tERROR: sólo puedes escribir una letra"
 		read -p "	Favor de volver a ingresar el dato: " letra
 		size_letra=${#letra}
 	done
+
+	#letras_elegidas[turno]=$letra
+	#echo "Letra elegida: ${letras_elegidas[turno]}"
+	let turno=turno+1
+
+	for ((posicion=0; posicion <= $turno; posicion++)); do
+                if [ ${letras_elegidas[posicion]} = $letra ];then
+                        echo -e "\n\tLo siento, pero ya has elegido esta letra. Ingresa otra, por favor"
+			read -p "	" letra
+			size_letra=${#letra}
+			while [ $size_letra -ne 1 ]; do
+                		echo -e "\n\tERROR: sólo puedes escribir una letra"
+                		read -p "       Favor de volver a ingresar el dato: " letra
+                		size_letra=${#letra}
+        		done
+			let posicion=0
+                fi
+        done
+
+	letras_elegidas[turno-1]=$letra
+
+	echo "Turno: $turno"
+
 	#echo $errores
 	coincidencias=0
 	for ((posicion=0; posicion < $size_word; posicion++)); do
@@ -83,7 +115,7 @@ while [ $errores -lt 10 ]; do
 		for ((posicion=0; posicion < $size_word; posicion++)); do
 	        	if [ ${palabra:$posicion:1} = $letra ];then
 	                	let palabra_r[posicion]=1
-				let aciertos=acirtos+1
+				let aciertos=aciertos+1
 	        	fi
 		done
 	fi
@@ -91,7 +123,7 @@ while [ $errores -lt 10 ]; do
 	#echo "aciertos $aciertos"
 	#echo "errores $errores"
 	#echo "palabra r: ${palabra_r[@]}"
-	#read -p "Presiona cualquier tecla para continuar" pausa
+	#read -p "Presione Enter para continuar..." pausa
 	
 	if [ $aciertos = $size_word ];then
 		break;
@@ -101,12 +133,16 @@ while [ $errores -lt 10 ]; do
 done
 
 if [ $errores -eq 10 ];then
+	clear
 	echo -e "\n\e[46m\t\t\tJUEGO DEL AHORCADO\t\t\t\e[49m"
 	error10
-	echo -e "\n\tMejor suerte la próxima"
+	echo -e "\n\t¡LO SIENTO, AMIGO! SE TE ACABARON LAS OPORTUNIDADES\t\n\n\t"
+	read -p "Presione Enter para continuar..." pausa
 else
+	clear
 	echo -e "\n\e[46m\t\t\tJUEGO DEL AHORCADO\t\t\t\e[49m"
-	echo -e "\n\tFelicidades"
+	echo -e "\n\t\t\tFELICIDADES\t\t\t\n\t\t¡HAS GANADO!\n\n\t"
+	read -p "Presione Enter para continuar..." pausa
 fi
 }
 
@@ -118,7 +154,6 @@ echo -e "\t||           o                 "
 echo -e "\t||           o                 "
 echo -e "\t||           o                 "
 echo -e "\t||           o                 "
-echo -e "\t||           o                 "
 echo -e "\t||         __o____             "
 echo -e "\t||        /_______\            "
 echo -e "\t||       |_________|           "
@@ -126,16 +161,17 @@ echo -e "\t||        | **  **|            "
 echo -e "\t||        |  x  x |            "
 echo -e "\t||        |    >  |            "
 echo -e "\t||         \  ~~ /             "
-echo -e "\t||       __ooooooo_            "
+echo -e "\t||        _ooooooo_            "
 echo -e "\t||      /          \           "
 echo -e "\t||     /            \          "
 echo -e "\t||     |  |       | |          "
 echo -e "\t||     |__|_______|_|          "
-echo -e "\t||______ww|       |w           "
+echo -e "\t||      ww|       |w           "
+echo -e "\t||______  |   |   |            "
 echo -e "\t||    (_) |   |   |            "
-echo -e "\t||____| | |   |   |            "
-echo -e "\t||    | | |___|___|_           "
-echo -e "\t||    | | |_____|___|          "
+echo -e "\t||____| | |___|___|            "
+echo -e "\t||    | |  |  \  \             "
+echo -e "\t||    | |   \_/\_/             "
 echo -e "\t||    | |                      "
 echo -e "\t||    |_|                      "
 }
@@ -151,8 +187,8 @@ echo -e "\t||        | **  **|            "
 echo -e "\t||        |  0  0 |            "
 echo -e "\t||        |    >  |            "
 echo -e "\t||         \  ~~ /             "
-echo -e "\t||       __ooooooo_            "
-echo -e "\t||      /          \           "
+echo -e "\t||       __o|___|o_            "
+echo -e "\t||      /   ooooo  \           "
 echo -e "\t||     /            \          "
 echo -e "\t||     |  |       | |          "
 echo -e "\t||     |__|_______|_|          "
