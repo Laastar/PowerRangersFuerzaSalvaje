@@ -1,7 +1,6 @@
 #!/bin/bash
 clear
 
-main_juego_ahorcado
 function main_juego_ahorcado {
 	clear
 	echo -e "\e[46m\t\t\t\t\t\t\t\t\e[49m"
@@ -503,3 +502,5 @@ echo -e "\t||                             "
 echo -e "\t||                             "
 echo -e "\t||                             "
 }
+
+main_juego_ahorcado
