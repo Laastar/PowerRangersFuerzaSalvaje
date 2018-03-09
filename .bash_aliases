@@ -6,3 +6,5 @@ alias CanalDelTiempo='cd /home/laastar/PowerRangersFuerzaSalvaje && ./Fecha_Hora
 alias PokedexQuizTime='cd /home/laastar/PowerRangersFuerzaSalvaje && ./pokejuego.sh'
 alias RealTimePlayer='cd /home/laastar/PowerRangersFuerzaSalvaje && ./prebeplayer.sh'
 alias ElAzarSiempreGana='cd /home/laastar/PowerRangersFuerzaSalvaje && ./Cagliostro.sh'
+alias CapitalPunishment='cd /home/laastar/PowerRangersFuerzaSalvaje && ./JuegoAhorcado_base.sh'
+alias Manual='sudo man'
