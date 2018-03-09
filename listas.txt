@@ -1,2 +1,0 @@
-*/*
-BlueSharkZord.sh hola hola.sh Holo.txt listas.txt README.md WildForceMegazord_SwordandShieldMode.sh
