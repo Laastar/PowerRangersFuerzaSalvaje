@@ -3,13 +3,11 @@
 export BahiadeLasMarianas=1
 login()
 {
+	cd /home/laastar/PoweRangersFuerzaSalvaje
 	clear
-	echo "Username: "
-	read Usuario
-	echo "Password: "
-	read Pass
-
-	if [ "$Usuario" = "Laastar" ] && [ "$Pass" = "Machicao12" ]
+	./prueba.sh
+	export BahiadeLasMarianas=1
+	if [ "$BahiadeLasMarianas" = 1 ]
 	then
 		retval=0
 	else
