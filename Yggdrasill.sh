@@ -2,15 +2,16 @@
 
 if(( "$BahiadeLasMarianas" == 1 ))
 then
-echo "En que directorio desea ejecutar Ratatoskrr?" | lolcat
+echo "En que directorio desea ejecutar el arbol?" | lolcat
 echo "(Inserte la ruta absoluta)" | lolcat
 echo "Si desea ejecutarlo en el directorio actual presiona enter" | lolcat
 read Directorio
-if(( "$Directorio" == "" ))
+if [ "$Directorio" == "" ]
 then
-Directorio = "$Ratatoskr"
-fi
+cd "$Ratatoskr"
+else
 cd "$Directorio"
+fi
 echo */ > listadir.txt
 echo * > listaarch.txt
 echo */* > listaanidada.txt
