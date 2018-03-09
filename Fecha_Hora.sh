@@ -1,7 +1,5 @@
 #!/bin/bash
 
-main_HF
-
 function main_HF {
 	clear
 	echo -e "\n\e[43m	Bienvenido al menú de Hora y Fecha		\e[49m\n"
@@ -66,3 +64,4 @@ clear
 	main_HF
 }
 
+main_HF
