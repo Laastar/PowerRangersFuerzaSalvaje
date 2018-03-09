@@ -1,7 +1,5 @@
 #!/bin/bash
 
-main_HF
-
 function main_HF {
 	clear
 	echo -e "	Bienvenido al menú de Hora y Fecha	\n"
@@ -31,3 +29,5 @@ function ver_H {
 function ver_F {
 		date +"%F"
 }
+
+main_HF
