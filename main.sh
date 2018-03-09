@@ -9,7 +9,7 @@ login()
 	echo "Password: "
 	read Pass
 
-	if [ "$Usuario" = "Laastar" ] && [ "$Pass" = "Revan" ]
+	if [ "$Usuario" = "Laastar" ] && [ "$Pass" = "Machicao12" ]
 	then
 		retval=0
 	else
