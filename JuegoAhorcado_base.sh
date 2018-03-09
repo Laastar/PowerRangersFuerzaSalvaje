@@ -1,6 +1,9 @@
 #!/bin/bash
 clear
 
+if(( "$BahiadeLasMarianas" == 1))
+then
+
 function main_juego_ahorcado {
 	clear
 	echo -e "\e[46m\t\t\t\t\t\t\t\t\e[49m"
@@ -504,3 +507,5 @@ echo -e "\t||                             "
 }
 
 main_juego_ahorcado
+
+fi
