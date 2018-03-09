@@ -61,6 +61,8 @@ POKE28="Sandslash"
 POKE29="Nidoran"
 POKE30="Nidorina"
 
+let cont=1
+
 function intro
 {
 echo -e "\e[0m\e[44;97m                                                                                                                    "
@@ -101,50 +103,331 @@ function selecciones
 
 read seleccion
 case $seleccion in
+
 	1)
-		echo -e "\e[45;37;4m                               CATEGORIA A                                 \e[0m";
-		echo -e "\e[45;37m                                                                      \e[0m";
-		echo -e "\e[45;37m Ingresa la ruta y el nombre de la canción de la siguiente manera:    \e[0m";
-		echo -e "\e[45;37;3m	/ruta/canción.mp3                                             \e[0m";
-		echo -e "\e[45;37m Posteriormente presiona la letra \"h\" para ver las teclas de control  \e[0m";
-		echo -e "\e[45;37m                                                                      ";
-		read cancion;
-		echo -e "\e[0m";
-		mpg123 --title -C $cancion
-		clear;
-		echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear; 
-		menu; opciones;;
+		clear
+		echo -e "\e[45;37;4m                               CATEGORIA A                               \e[0m"
+		echo -e "\e[45;37m                                                                         \e[0m"
+
+		function P1 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #1 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE1"
+        			then
+               				pokemonsay -p Bulbasaur -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P1;
+
+		function P2 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #2 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE2"
+        			then
+               				pokemonsay -p Ivysaur -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P2;
+
+		function P3 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #3 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE3"
+        			then
+               				pokemonsay -p Venusaur -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P3;
+
+		function P4 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #4 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE4"
+        			then
+               				pokemonsay -p Charmander -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P4;
+
+		function P5 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #5 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE5"
+        			then
+               				pokemonsay -p Charmeleon -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P5;
+
+		function P6 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #6 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE6"
+        			then
+               				pokemonsay -p Charizard -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P6;
+
+		function P7 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #7 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE7"
+        			then
+               				pokemonsay -p Squirtle -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P7;
+
+		function P8 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #8 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE8"
+        			then
+               				pokemonsay -p Wartortle -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P8;
+
+		function P9 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #9 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE9"
+        			then
+               				pokemonsay -p Blastoise -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P9;
+
+		function P10 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #10 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE10"
+        			then
+               				pokemonsay -p Caterpie -n "Felicidades!!! Te sabes mi nombre :V"
+               				echo -e "\e[97;41;1mACABAS DE TERMINAR LA CATEGORIA A!!!!!\e[0m"
+               				read -p "Presiona [Enter]..."
+           					menu; selecciones;
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P10;;
 
 
-	2)
-		echo -e "\e[45;37;4m                              IN ORDER                                \e[0m";
-		echo -e "\e[45;37m                                                                      \e[0m";
-                echo -e "\e[45;37m Ingresa la ruta del directorio de la siguiente manera:               \e[0m";
-                echo -e "\e[45;37;3m    /ruta/directorio_con_las_canciones                                \e[0m";
-                echo -e "\e[45;37m Posteriormente presiona la letra \"h\" para ver las teclas de control  \e[0m";
-                echo -e "\e[45;37m                                                                      ";
-		read carpeta;
-		echo -e "\e[0m";
-		mpg123 --title -C $carpeta/*;
-		clear;
-		echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear;
-		menu; opciones;;
+
+
+	2)		
+
+		clear
+		echo -e "\e[45;37;4m                               CATEGORIA B                               \e[0m"
+		echo -e "\e[45;37m                                                                         \e[0m"
+
+		function P11 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #11 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE11"
+        			then
+               				pokemonsay -p Bulbasaur -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P11;
+
+		function P12 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #12 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE12"
+        			then
+               				pokemonsay -p Ivysaur -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P12;
+
+		function P13 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #13 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE13"
+        			then
+               				pokemonsay -p Venusaur -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P13;
+
+		function P14 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #14 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE14"
+        			then
+               				pokemonsay -p Charmander -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P14;
+
+		function P15 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #15 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE15"
+        			then
+               				pokemonsay -p Charmeleon -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P15;
+
+		function P16 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #16 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE16"
+        			then
+               				pokemonsay -p Charizard -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P16;
+
+		function P17 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #17 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE17"
+        			then
+               				pokemonsay -p Squirtle -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P17;
+
+		function P18 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #18 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE18"
+        			then
+               				pokemonsay -p Wartortle -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P18;
+
+		function P19 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #19 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE19"
+        			then
+               				pokemonsay -p Blastoise -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P19;
+
+		function P20 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #20 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE20"
+        			then
+               				pokemonsay -p Caterpie -n "Felicidades!!! Te sabes mi nombre :V"
+               				echo -e "\e[97;41;1mACABAS DE TERMINAR LA CATEGORIA A!!!!!\e[0m"
+               				read -p "Presiona [Enter]..."
+           					menu; selecciones;
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P20;;
 
 
 
-	3)
-		echo -e "\e[45;37;4m                               SHUFFLE                                \e[0m";
-		echo -e "\e[45;37m                                                                      \e[0m";
-                echo -e "\e[45;37m Ingresa la ruta del directorio de la siguiente manera:               \e[0m";
-                echo -e "\e[45;37;3m    /ruta/directorio_con_las_canciones                                \e[0m";
-                echo -e "\e[45;37m Posteriormente presiona la letra \"h\" para ver las teclas de control  \e[0m";
-                echo -e "\e[45;37m                                                                      ";
-                read carpeta;
-                echo -e "\e[0m";
-                mpg123 --title --shuffle -C $carpeta/*;
-                clear;
-                echo -e "--- FIN DE LA REPRODUCCIÓN --- \nPresione [Enter] para regresar al menú principal..."; read -p ""; clear;
-                menu; opciones;;
+##	3)
+##		;;
 
 
 
@@ -152,7 +435,7 @@ case $seleccion in
 		read -p "Presiona [Enter] para salir"; clear; exit;;
 
 	*)
-		echo "Opción incorrecta";
+		echo "Opción incorrecta"
 		read -p "Presiona [Enter]..."
 		clear;
 		menu; selecciones;;
@@ -161,4 +444,7 @@ esac
 }
 
 selecciones
+
+
+
 
