@@ -1,1 +1,0 @@
-BlueSharkZord.sh Cagliostro.sh hola hola.sh Holo.txt JuegoAhorcado_base listaanidada.txt listaarch.txt listadir.txt listas.txt main.sh prebeplayer.sh Prueba.sh README.md Yggdrasill.sh
