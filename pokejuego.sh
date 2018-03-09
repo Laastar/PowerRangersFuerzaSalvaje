@@ -58,7 +58,7 @@ POKE25="Pikachu"
 POKE26="Raichu"
 POKE27="Sandshrew"
 POKE28="Sandslash"
-POKE29="Nidoran"
+POKE29="Nidoran♀"
 POKE30="Nidorina"
 
 let cont=1
@@ -266,17 +266,16 @@ case $seleccion in
 
 
 	2)		
-
 		clear
 		echo -e "\e[45;37;4m                               CATEGORIA B                               \e[0m"
 		echo -e "\e[45;37m                                                                         \e[0m"
 
 		function P11 {
-			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #11 en la pokedex:  \e[0m"
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #11 en la pokedex: \e[0m"
 			read POKEIN
 			if test "$POKEIN" = "$POKE11"
         			then
-               				pokemonsay -p Bulbasaur -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Metapod -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -291,7 +290,7 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE12"
         			then
-               				pokemonsay -p Ivysaur -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Butterfree -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -306,7 +305,7 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE13"
         			then
-               				pokemonsay -p Venusaur -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Weedle -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -321,7 +320,7 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE14"
         			then
-               				pokemonsay -p Charmander -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Kakuna -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -336,7 +335,7 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE15"
         			then
-               				pokemonsay -p Charmeleon -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Beedrill -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -351,7 +350,7 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE16"
         			then
-               				pokemonsay -p Charizard -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Pidgey -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -366,7 +365,7 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE17"
         			then
-               				pokemonsay -p Squirtle -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Pidgeotto -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -381,7 +380,7 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE18"
         			then
-               				pokemonsay -p Wartortle -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Pidgeot -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -396,7 +395,7 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE19"
         			then
-               				pokemonsay -p Blastoise -n "Felicidades!!! Te sabes mi nombre :V"
+               				pokemonsay -p Rattata -n "Felicidades!!! Te sabes mi nombre :V"
         	else
            			echo "Te equivocaste men"
            			echo "Adios"
@@ -411,8 +410,8 @@ case $seleccion in
 			read POKEIN
 			if test "$POKEIN" = "$POKE20"
         			then
-               				pokemonsay -p Caterpie -n "Felicidades!!! Te sabes mi nombre :V"
-               				echo -e "\e[97;41;1mACABAS DE TERMINAR LA CATEGORIA A!!!!!\e[0m"
+               				pokemonsay -p Raticate -n "Felicidades!!! Te sabes mi nombre :V"
+               				echo -e "\e[97;41;1mACABAS DE TERMINAR LA CATEGORIA B!!!!!\e[0m"
                				read -p "Presiona [Enter]..."
            					menu; selecciones;
         	else
@@ -426,9 +425,163 @@ case $seleccion in
 
 
 
-##	3)
-##		;;
+	3)
+		clear
+		echo -e "\e[45;37;4m                               CATEGORIA C                               \e[0m"
+		echo -e "\e[45;37m                                                                         \e[0m"
 
+		function P21 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #21 en la pokedex: \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE21"
+        			then
+               				pokemonsay -p Spearow -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P21;
+
+		function P22 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #22 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE22"
+        			then
+               				pokemonsay -p Fearow -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P22;
+
+		function P23 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #23 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE23"
+        			then
+               				pokemonsay -p Ekans -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P23;
+
+		function P24 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #24 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE24"
+        			then
+               				pokemonsay -p Arbok -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P24;
+
+		function P25 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #25 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE25"
+        			then
+               				pokemonsay -p Pikachu -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P25;
+
+		function P26 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #26 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE26"
+        			then
+               				pokemonsay -p Raichu -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P26;
+
+		function P27 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #27 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE27"
+        			then
+               				pokemonsay -p Sandshrew -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P27;
+
+		function P28 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #28 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE28"
+        			then
+               				pokemonsay -p Sandslash -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P28;
+
+		function P29 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #29 en la pokedex (pista: ♀):  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE29"
+        			then
+               				pokemonsay -p Nidoran♀ -n "Felicidades!!! Te sabes mi nombre :V"
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P29;
+
+		function P30 {
+			echo -e "\e[45;37mIngresa el nombre empezando con mayúscula del pokemon #30 en la pokedex:  \e[0m"
+			read POKEIN
+			if test "$POKEIN" = "$POKE30"
+        			then
+               				pokemonsay -p Nidorina -n "Felicidades!!! Te sabes mi nombre :V"
+               				echo -e "\e[97;41;1mACABAS DE TERMINAR LA CATEGORIA C!!!!! ERES TODO UN PRO /0/\e[0m"
+               				read -p "Presiona [Enter]..."
+           					menu; selecciones;
+        	else
+           			echo "Te equivocaste men"
+           			echo "Adios"
+           			read -p "Presiona [Enter]..."
+           			menu; selecciones;
+			fi
+		}
+		P30;;
 
 
 	4)
